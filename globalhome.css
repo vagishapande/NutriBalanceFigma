@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* Figma Variables */
+
+  /* Spacing */
+  --Corner-Full: 1000px;
+  --Corner-Large-increased: 20px;
+
+  /* Common Style Variables */
+}

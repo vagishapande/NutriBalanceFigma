@@ -1,0 +1,449 @@
+.explore-2 {
+  width: 100%;
+  position: relative;
+  background-color: #fdf8e3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px 0 111px;
+  box-sizing: border-box;
+  gap: 152px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.header {
+  align-self: stretch;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 280px;
+  text-align: left;
+  font-size: 32px;
+  color: #000;
+  font-family: Outfit;
+}
+.nutribalance {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 500;
+  font-family: inherit;
+}
+.balance {
+  color: #3bd027;
+}
+.navigation {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  text-align: left;
+  font-size: 24px;
+  color: #9c9c9c;
+  font-family: Outfit;
+}
+.explore,
+.home {
+  cursor: pointer;
+  position: relative;
+}
+.home {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.explore {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: 24px;
+  font-family: Outfit;
+  color: #000;
+  text-align: left;
+  display: inline-block;
+}
+.access {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.sign-in {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: 32px;
+  font-weight: 500;
+  color: #000;
+  display: inline-block;
+}
+.main-content,
+.sign-in,
+.signforfree {
+  text-align: left;
+  font-family: Outfit;
+}
+.signforfree {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: 32px;
+  font-weight: 500;
+  color: #3bd027;
+  display: inline-block;
+}
+.main-content {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 24px 0 20px;
+  box-sizing: border-box;
+  max-width: 100%;
+  font-size: 28px;
+  color: #a9a6a6;
+}
+.search-container-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 77px;
+  max-width: 100%;
+}
+.search-bar,
+.search-container {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.search-container {
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 66px 0 71px;
+}
+.search-bar {
+  align-self: stretch;
+  flex: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background-color: #fff;
+  align-items: center;
+  padding: 10px;
+  gap: 500px;
+}
+.search-fields {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 100%;
+}
+.search-icon {
+  height: 32px;
+  width: 33px;
+}
+.enter-your-health,
+.search-icon {
+  position: relative;
+}
+.search-action {
+  cursor: pointer;
+  border: 0;
+  padding: 4px 20px;
+  background-color: #3bd027;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  border-radius: var(--Corner-Large-increased);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-action:hover {
+  background-color: #21b80d;
+}
+.generate-results {
+  position: relative;
+  font-size: 28px;
+  font-weight: 500;
+  font-family: Outfit;
+  color: #fff;
+  text-align: left;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.results-for-protein-rich-diet-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 100%;
+  text-align: center;
+  font-size: 48px;
+  color: #000;
+}
+.results-for-protein-container {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 500;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.result-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0 0 5px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.result-item {
+  align-self: stretch;
+  flex: 1;
+  display: grid;
+  align-items: center;
+  max-width: 100%;
+  grid-template-columns: repeat(3, minmax(310px, 1fr));
+}
+.frame-group,
+.frame-parent {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.frame-parent {
+  height: 466px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--Corner-Extra-large);
+  overflow: hidden;
+  flex-direction: column;
+  padding: 30px 21px 18px;
+  gap: 22px;
+  max-width: 100%;
+  text-align: left;
+  font-size: 12px;
+  color: #fff;
+  font-family: Outfit;
+}
+.frame-group {
+  width: 368px;
+  padding: 13px 14px 281px;
+  position: relative;
+  isolation: isolate;
+}
+.frame-child {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 25px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.diet-categories {
+  height: 22px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  border-radius: var(--Corner-Large-increased);
+  background-color: #3bd027;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px 4px 13px;
+  box-sizing: border-box;
+  opacity: 0.97;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.dairy-products {
+  position: relative;
+  font-weight: 500;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.diet-details {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 40px 0 38px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.97);
+}
+.include-paneer-milk {
+  height: 80px;
+  width: 293px;
+  position: relative;
+  display: inline-block;
+}
+.frame-container {
+  height: 466px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--Corner-Extra-large);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 21px 18px;
+  box-sizing: border-box;
+  gap: 22px;
+  opacity: 0.97;
+  max-width: 100%;
+  z-index: 2;
+  margin-left: -2px;
+  position: relative;
+  text-align: left;
+  font-size: 12px;
+  color: #fff;
+  font-family: Outfit;
+}
+.pulses-legumes-wrapper {
+  height: 22px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  border-radius: var(--Corner-Large-increased);
+  background-color: #3bd027;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px 4px 7px;
+  box-sizing: border-box;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.rich-in-protein-and-fiber-the-wrapper {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 42px 0 38px;
+  font-size: 16px;
+  color: #000;
+}
+.rich-in-protein {
+  height: 80px;
+  width: 291px;
+  position: relative;
+  display: inline-block;
+}
+.frame-section {
+  height: 466px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--Corner-Extra-large);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 21px 18px;
+  box-sizing: border-box;
+  gap: 22px;
+  max-width: 100%;
+  z-index: 3;
+  margin-left: -2px;
+  position: relative;
+  text-align: left;
+  font-size: 12px;
+  color: #fff;
+  font-family: Outfit;
+}
+.whole-grains-wrapper {
+  height: 22px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  border-radius: var(--Corner-Large-increased);
+  background-color: #3bd027;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 21px 4px 18px;
+  box-sizing: border-box;
+  opacity: 0.97;
+  z-index: 1;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 1200px) {
+  .header {
+    gap: 140px;
+  }
+  .search-container {
+    padding-left: 35px;
+    padding-right: 33px;
+    box-sizing: border-box;
+  }
+  .search-bar {
+    gap: 250px;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .navigation {
+    display: none;
+  }
+  .results-for-protein-container {
+    font-size: 38px;
+  }
+  .result-item {
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(310px, 537px));
+  }
+}
+@media screen and (max-width: 750px) {
+  .explore-2 {
+    gap: 76px;
+  }
+  .header {
+    gap: 70px;
+  }
+  .search-container-parent {
+    gap: 38px;
+  }
+  .search-bar {
+    gap: 125px;
+  }
+  .result-item {
+    grid-template-columns: minmax(310px, 1fr);
+  }
+  .frame-parent {
+    padding-top: 20px;
+  }
+  .frame-container,
+  .frame-parent,
+  .frame-section {
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .explore-2 {
+    gap: 38px;
+  }
+  .header,
+  .navigation {
+    gap: 35px;
+  }
+  .access {
+    display: none;
+  }
+  .search-container-parent {
+    gap: 19px;
+  }
+  .search-bar {
+    gap: 62px;
+  }
+  .search-fields {
+    flex-wrap: wrap;
+  }
+  .enter-your-health {
+    font-size: 22px;
+  }
+  .results-for-protein-container {
+    font-size: 29px;
+  }
+  .rich-in-protein-and-fiber-the-wrapper {
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+}
