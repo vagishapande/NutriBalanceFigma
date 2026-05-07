@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NutriBalance</title>
+<link href="./style.css" rel="stylesheet"/>
+</head>
+<body>
+  <script src="./java.js"></script>
+
+<nav>
+  <a class="logo" onclick="showPage('home')">Nutri<span>Balance</span></a>
+  <div class="nav-links">
+    <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+    <a onclick="showPage('explore')" id="nav-explore">Explore</a>
+    <a onclick="showPage('mealplan')" id="nav-mealplan">Meal Plan</a>
+    <a onclick="showPage('analysis')" id="nav-analysis">Food Analysis</a>
+    <a onclick="showPage('progress')" id="nav-progress">Progress</a>
+    <a onclick="showPage('about')" id="nav-about">About</a>
+  </div>
+  <div class="nav-right">
+    <!-- Sign in buttons removed -->
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero-section">
+    <div class="hero-left">
+      <div class="hero-tag"><span></span>🌿 Smart Nutrition Platform</div>
+      <h1 class="hero-title">Eat smart!<br/><span>Fuel your body right!</span></h1>
+      <p class="hero-sub">Tell us your nutritional deficiencies and health goals — we'll suggest the exact foods your body needs.</p>
+      <div class="search-box">
+        <input id="home-query" placeholder="Enter your health goals…" onkeydown="if(event.key==='Enter'){setExploreQuery();showPage('explore');exploreGoal();}"/>
+        <button onclick="setExploreQuery();showPage('explore');exploreGoal();">Go →</button>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><div class="dot"></div>Science-Backed</div>
+        <div class="hero-badge"><div class="dot"></div>Indian Food Focus</div>
+        <div class="hero-badge"><div class="dot"></div>Free to Use</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img class="hero-main-img" src="./images/homepagemain.jpeg" alt="Healthy food bowl"/>
+        <div class="hero-float-card">
+          <div class="fc-icon" style="background:rgba(58,125,68,0.10);">🥗</div>
+          <div><div>Balanced Meal</div><div class="fc-label">320 kcal</div></div>
+        </div>
+        <div class="hero-float-card">
+          <div class="fc-icon" style="background:rgba(255,152,0,0.10);">💪</div>
+          <div><div>Protein Goal</div><div class="fc-label">78g / 100g</div></div>
+        </div>
+        <div class="hero-float-card">
+          <div class="fc-icon" style="background:rgba(33,150,243,0.10);">💧</div>
+          <div><div>Hydration</div><div class="fc-label">6 / 8 glasses</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Everything you need for a <span>healthier life</span></h2>
+    <p class="features-sub">One platform. All your nutrition needs covered.</p>
+    <div class="feat-grid">
+      <div class="feat-card" onclick="showPage('explore')">
+        <img class="feat-img" src="./images/foodsuggestion.webp" alt="Food Suggestions"/>
+        <h3>🥗 Food Suggestions</h3>
+        <p>Personalised food recommendations based on your specific health goals and nutritional deficiencies.</p>
+      </div>
+      <div class="feat-card" onclick="showPage('mealplan')">
+        <img class="feat-img" src="./images/mealplan.jpg" alt="Meal Plans"/>
+        <h3>📅 Meal Plans</h3>
+        <p>Curated 7-day Indian meal plans tailored to your dietary goals — from weight loss to muscle gain.</p>
+      </div>
+      <div class="feat-card" onclick="showPage('analysis')">
+        <img class="feat-img" src="./images/foodanalysis.jpg" alt="Food Analysis"/>
+        <h3>📊 Food Analysis</h3>
+        <p>Detailed macro breakdown with calorie count, protein, fats and personalised improvement tips.</p>
+      </div>
+      <div class="feat-card" onclick="showPage('progress')">
+        <img class="feat-img" src="./images/foodprogress.avif" alt="Progress Tracking"/>
+        <h3>📈 Progress Tracking</h3>
+        <p>Monitor sleep, water intake and daily nutrition to stay on track with your health goals.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLORE -->
+<div class="page" id="page-explore">
+  <div class="section">
+    <div class="section-title">🌿 Explore <span>Foods</span></div>
+    <div class="search-bar-wrap">
+      <div class="hint">Enter your health goal to get personalised food suggestions</div>
+      <div class="search-row">
+        <input id="explore-query" placeholder="e.g. Protein Rich Diet, Weight Loss, Iron Deficiency…" onkeydown="if(event.key==='Enter')exploreGoal();"/>
+        <button class="go-btn" onclick="exploreGoal()">Find Foods</button>
+      </div>
+      <div class="suggestions">
+        <span class="sug-tag" onclick="quickExplore('Protein Rich Diet')">Protein Rich Diet</span>
+        <span class="sug-tag" onclick="quickExplore('Weight Loss')">Weight Loss</span>
+        <span class="sug-tag" onclick="quickExplore('Iron Deficiency')">Iron Deficiency</span>
+        <span class="sug-tag" onclick="quickExplore('Vitamin D Boost')">Vitamin D Boost</span>
+        <span class="sug-tag" onclick="quickExplore('Low Carb Diet')">Low Carb Diet</span>
+        <span class="sug-tag" onclick="quickExplore('High Fiber')">High Fiber</span>
+      </div>
+    </div>
+    <div id="explore-loader" class="loader" style="display:none;"><div class="spinner"></div>Finding the best foods for you…</div>
+    <div id="explore-results"></div>
+
+    <!-- Static extra info section -->
+    <div style="margin-top:3rem;">
+      <div class="section-title" style="font-size:22px;">💡 Nutrition <span>Quick Tips</span></div>
+      <div class="explore-tip-grid">
+        <div class="explore-tip-card">
+          <div class="etip-icon">🥗</div>
+          <div class="etip-body"><h4>Eat the Rainbow</h4><p>Include vegetables of at least 3–4 different colours in your daily meals to ensure a wide range of vitamins and antioxidants.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">💧</div>
+          <div class="etip-body"><h4>Hydration Matters</h4><p>Drink 8–10 glasses of water daily. Herbal teas and coconut water are great alternatives to plain water.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">⏰</div>
+          <div class="etip-body"><h4>Meal Timing</h4><p>Eating at consistent times helps regulate blood sugar. Try not to skip breakfast — it kickstarts your metabolism.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">🌾</div>
+          <div class="etip-body"><h4>Whole Grains First</h4><p>Replace maida roti with whole wheat or multigrain. Brown rice and oats provide more fiber and nutrients than refined grains.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">🥜</div>
+          <div class="etip-body"><h4>Healthy Fats</h4><p>Include a small handful of nuts or a teaspoon of ghee daily. Healthy fats are essential for brain function and vitamin absorption.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">🫘</div>
+          <div class="etip-body"><h4>Dal Every Day</h4><p>Pulses like moong, masoor and chana are the cornerstone of Indian nutrition — rich in protein, iron and fiber. Have at least one serving daily.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEAL PLAN -->
+<div class="page" id="page-mealplan">
+  <div class="section">
+    <div class="section-title">🗓 <span>Meal Planner</span></div>
+
+    <div class="meal-banner">
+      <div class="meal-banner-icon">🍱</div>
+      <div class="mb-text">
+        <h3>Your Personalised 7-Day Indian Meal Plan</h3>
+        <p>Type your health goal below — weight loss, muscle gain, diabetic-friendly — and get a full week of meals mapped out for you.</p>
+      </div>
+    </div>
+
+    <div class="search-bar-wrap">
+      <div class="hint">Enter your goal and get a personalised 7-day Indian meal plan</div>
+      <div class="search-row">
+        <input id="meal-query" placeholder="e.g. Lose 5kg, Build muscle, Diabetic-friendly…" onkeydown="if(event.key==='Enter')generateMealPlan();"/>
+        <button class="go-btn" onclick="generateMealPlan()">Generate Plan</button>
+      </div>
+      <div class="suggestions">
+        <span class="sug-tag" onclick="quickMeal('Weight Loss')">Weight Loss</span>
+        <span class="sug-tag" onclick="quickMeal('Muscle Building')">Muscle Building</span>
+        <span class="sug-tag" onclick="quickMeal('Diabetic Friendly')">Diabetic Friendly</span>
+        <span class="sug-tag" onclick="quickMeal('Vegetarian Balanced')">Vegetarian Balanced</span>
+        <span class="sug-tag" onclick="quickMeal('High Protein')">High Protein</span>
+      </div>
+    </div>
+    <div id="meal-loader" class="loader" style="display:none;"><div class="spinner"></div>Building your personalised 7-day meal plan…</div>
+    <div id="meal-results"></div>
+
+    <!-- Extra meal-plan info cards -->
+    <div style="margin-top:2.5rem;" id="meal-static-info">
+      <div class="section-title" style="font-size:22px;">📌 Meal Planning <span>Essentials</span></div>
+      <div class="explore-tip-grid">
+        <div class="explore-tip-card">
+          <div class="etip-icon">🍳</div>
+          <div class="etip-body"><h4>Breakfast is Non-Negotiable</h4><p>A good breakfast with protein and fiber — chilla, oats, or eggs — sets the tone for controlled appetite throughout the day.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">🥙</div>
+          <div class="etip-body"><h4>Balanced Lunch Plate</h4><p>Aim for half the plate as vegetables, a quarter protein (dal/chicken), and a quarter grains (roti/rice). This ratio works universally.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">🌙</div>
+          <div class="etip-body"><h4>Light Dinners Work Best</h4><p>Keep dinners light and protein-focused. Avoid heavy carbs after 7 PM for better sleep and digestion.</p></div>
+        </div>
+        <div class="explore-tip-card">
+          <div class="etip-icon">🍎</div>
+          <div class="etip-body"><h4>Smart Snacking</h4><p>Roasted chana, a fruit, or a small handful of nuts between meals keeps your metabolism active and prevents overeating at main meals.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD ANALYSIS -->
+<div class="page" id="page-analysis">
+  <div class="section">
+    <div class="section-title">🔍 <span>Food Analysis</span></div>
+    <div class="analysis-box">
+      <div style="font-size:14px;color:var(--gray);margin-bottom:12px;font-weight:500;">Log what you ate today — we'll break down your macros and give improvement tips</div>
+      <textarea id="food-log" placeholder="e.g. 2 rotis with dal, 1 banana, 1 glass milk, rice with paneer sabzi…"></textarea>
+      <button class="go-btn" style="margin-top:16px;" onclick="analyzeFood()">Analyse My Diet</button>
+    </div>
+    <div id="analysis-loader" class="loader" style="display:none;"><div class="spinner"></div>Analysing your nutrition…</div>
+    <div id="analysis-results"></div>
+
+    <!-- Static nutrition education cards -->
+    <div style="margin-top:2.5rem;">
+      <div class="section-title" style="font-size:22px;">🧬 Understand Your <span>Macros</span></div>
+      <div class="tips-grid">
+        <div class="nutrition-tip">
+          <div class="nt-head"><div class="nt-icon">💪</div><div class="nt-label">Protein</div></div>
+          <p>Proteins are the building blocks of muscle and tissue. Aim for 0.8–1.2g per kg of body weight. Best Indian sources: dal, paneer, eggs, chicken, rajma, chole, Greek dahi.</p>
+        </div>
+        <div class="nutrition-tip">
+          <div class="nt-head"><div class="nt-icon">⚡</div><div class="nt-label">Carbohydrates</div></div>
+          <p>Carbs are your body's primary energy fuel. Prefer complex carbs — whole wheat roti, brown rice, oats, daliya — over refined options like maida. They release energy slowly and keep you fuller.</p>
+        </div>
+        <div class="nutrition-tip">
+          <div class="nt-head"><div class="nt-icon">🥑</div><div class="nt-label">Healthy Fats</div></div>
+          <p>Fats are essential for brain health, hormone production, and vitamin absorption. Include ghee, nuts, seeds, and coconut in moderation. Avoid trans fats in fried packaged foods.</p>
+        </div>
+        <div class="nutrition-tip">
+          <div class="nt-head"><div class="nt-icon">🌿</div><div class="nt-label">Fiber</div></div>
+          <p>Dietary fiber aids digestion, lowers cholesterol, and keeps blood sugar stable. Target 25–35g daily through vegetables, fruits, legumes, and whole grains. Isabgol is a great supplement.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <div class="section-title" style="font-size:22px;">🍽 Common Indian Meals — <span>Calorie Reference</span></div>
+        <div class="explore-tip-grid">
+          <div class="explore-tip-card">
+            <div class="etip-icon">🫓</div>
+            <div class="etip-body"><h4>Dal Roti (1 serving)</h4><p>~350–400 kcal · Protein: 14g · Carbs: 58g · Fats: 7g. A staple balanced meal providing slow-release energy and plant protein.</p></div>
+          </div>
+          <div class="explore-tip-card">
+            <div class="etip-icon">🍚</div>
+            <div class="etip-body"><h4>Rajma Chawal (1 plate)</h4><p>~520 kcal · Protein: 20g · Carbs: 82g · Fats: 6g. One of the best plant-based complete protein meals in Indian cuisine.</p></div>
+          </div>
+          <div class="explore-tip-card">
+            <div class="etip-icon">🧀</div>
+            <div class="etip-body"><h4>Paneer Sabzi + 2 Rotis</h4><p>~480 kcal · Protein: 22g · Carbs: 42g · Fats: 16g. High protein, moderate carb dinner option — ideal post-workout.</p></div>
+          </div>
+          <div class="explore-tip-card">
+            <div class="etip-icon">🥣</div>
+            <div class="etip-body"><h4>Oats Porridge (1 bowl)</h4><p>~220 kcal · Protein: 7g · Carbs: 36g · Fats: 4g. Low-calorie, high-fiber breakfast that keeps you full until lunch.</p></div>
+          </div>
+          <div class="explore-tip-card">
+            <div class="etip-icon">🥚</div>
+            <div class="etip-body"><h4>2-Egg Omelette</h4><p>~180 kcal · Protein: 13g · Carbs: 2g · Fats: 12g. Quick, high-protein breakfast with near-zero carbs — great for weight loss.</p></div>
+          </div>
+          <div class="explore-tip-card">
+            <div class="etip-icon">🫘</div>
+            <div class="etip-body"><h4>Moong Dal Chilla (2 pcs)</h4><p>~260 kcal · Protein: 13g · Carbs: 30g · Fats: 6g. Healthy, light meal with good protein — perfect for breakfast or evening snack.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="page" id="page-progress">
+  <div class="section">
+    <div class="section-title">📈 Daily <span>Progress</span></div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="big" id="ps-cal">—</div><div class="lab">Calories</div><div class="sub">kcal today</div></div>
+      <div class="stat-card"><div class="big" id="ps-pro">—</div><div class="lab">Protein</div><div class="sub">grams</div></div>
+      <div class="stat-card"><div class="big" id="ps-fat">—</div><div class="lab">Fats</div><div class="sub">grams</div></div>
+      <div class="stat-card"><div class="big" id="ps-slp">—</div><div class="lab">Sleep</div><div class="sub">last night</div></div>
+    </div>
+
+    <div class="progress-card">
+      <h3>🍽 What did you eat today?</h3>
+      <div style="font-size:13px;color:var(--gray);margin-bottom:10px;">List everything you ate and we'll calculate your calories, protein and fats</div>
+      <textarea id="prog-food-log" style="width:100%;min-height:90px;border-radius:14px;border:1.5px solid var(--border);padding:14px;font-size:14px;resize:vertical;outline:none;font-family:'DM Sans',sans-serif;background:rgba(255,255,255,0.7);transition:all .2s;" placeholder="e.g. 2 rotis, dal, rice, 1 banana, 1 glass milk, paneer sabzi…" onfocus="this.style.borderColor='var(--green)';this.style.boxShadow='0 0 0 3px rgba(58,125,68,0.10)'" onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'"></textarea>
+      <button class="go-btn" style="margin-top:12px;font-size:14px;padding:9px 22px;" onclick="calcFoodProgress()">Calculate Nutrition</button>
+      <div id="prog-food-loader" class="loader" style="display:none;"><div class="spinner"></div>Calculating…</div>
+      <div id="prog-food-result" class="prog-result" style="display:none;margin-top:14px;"></div>
+    </div>
+
+    <div class="progress-card">
+      <h3>💧 Water Intake Today</h3>
+      <div style="font-size:13px;color:var(--gray);" id="water-label">5 / 8 glasses</div>
+      <div class="water-btns" id="water-btns"></div>
+    </div>
+
+    <div class="progress-card">
+      <h3>😴 Sleep Schedule</h3>
+      <div class="sleep-row">
+        <div><label>Bedtime</label><input type="time" id="sleep-start" value="23:00"/></div>
+        <div><label>Wake-up time</label><input type="time" id="sleep-end" value="07:00"/></div>
+      </div>
+      <button class="go-btn" style="font-size:14px;padding:9px 22px;" onclick="calcSleep()">Save Sleep</button>
+      <div id="sleep-result" class="prog-result" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <h2>🌿 About NutriBalance</h2>
+    <p>We believe that maintaining a balanced diet should not be complicated. NutriBalance combines nutritional science with smart data to make healthy eating simple, accessible, and effective for everyone.</p>
+  </div>
+  <div class="about-body">
+    <p>NutriBalance is a smart and user-friendly platform designed to help you make better food choices based on your nutritional needs. Whether you are lacking iron, protein, vitamins, or other essential nutrients, our goal is to guide you with the right food suggestions in a simple and effective way.</p>
+    <p>At NutriBalance, we aim to promote healthier lifestyles by combining technology with basic nutrition knowledge, helping users take smarter steps toward a better and balanced life. Our platform provides personalised, practical recommendations based on Indian dietary habits and food culture.</p>
+    <div class="about-stats">
+      <div class="about-stat"><div class="av">10K+</div><div class="al">Users Helped</div></div>
+      <div class="about-stat"><div class="av">500+</div><div class="al">Food Items</div></div>
+      <div class="about-stat"><div class="av">100%</div><div class="al">Science Backed</div></div>
+      <div class="about-stat"><div class="av">4.9★</div><div class="al">User Rating</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
